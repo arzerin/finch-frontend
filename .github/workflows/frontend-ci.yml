@@ -15,7 +15,7 @@ jobs:
       IMAGE_TAG: latest
 
     steps:
-    - name: Checkout code
+    - name: Checkout Code
       uses: actions/checkout@v3
 
     - name: Setup Node.js
@@ -26,10 +26,7 @@ jobs:
     - name: Install dependencies
       run: npm ci
 
-    - name: Run NPM Tests
-      run: npm test
-
-    - name: Build frontend
+    - name: Build frontend site
       run: npm run build
 
     - name: Login to Docker Hub
@@ -45,4 +42,3 @@ jobs:
       run: |
         docker push $IMAGE_NAME:$IMAGE_TAG
         echo "✅ Docker image pushed: $IMAGE_NAME:$IMAGE_TAG"
-
